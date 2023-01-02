@@ -1,9 +1,8 @@
 import React from 'react'
 
-import{InputContainer} from './input.styles'
+import{InputContainer,CommandInputMainContainer} from './input.styles'
 
 import {commandCompletion} from '../../utils/commandCompletion'
-
 import cmdValidator from '../../utils/cmdValidator';
 import Prompt from '../Prompt/prompt.component';
 
@@ -11,12 +10,12 @@ import Prompt from '../Prompt/prompt.component';
 export default function Input({
     inputRef,
     command,
-    history,
+    commandHistory,
     lastCommandIndex,
     setCommand,
-    setHistory,
+    setCommandHistory,
     setLastCommandIndex,
-    clearHistory,
+    clearCommandHistory,
     }) {
 
   
@@ -27,23 +26,23 @@ export default function Input({
   
     const handleSubmit = async (e) => {       
 
-        const commands= history
+        const commands= commandHistory
         .map(({ command }) => command)
         .filter((command) => command);
 
         if (e.key === 'Enter' || e.code === '13') {
             e.preventDefault();
-            await cmdValidator(command,setCommand,setHistory,clearHistory);
+            await cmdValidator(command,setCommand,setCommandHistory,clearCommandHistory);
         }
         if (e.key === 'c' && e.ctrlKey) {
             e.preventDefault();
             setCommand('');
-            setHistory('');
+            setCommandHistory('');
             setLastCommandIndex(0);
           }
         if (e.key === 'l' && e.ctrlKey) {
             e.preventDefault();
-            clearHistory();
+            clearCommandHistory();
         }
         if (e.key === 'Tab') {
             e.preventDefault();
@@ -79,7 +78,7 @@ export default function Input({
     }
 
   return (
-    <div style={{display:"flex"}}>
+    <CommandInputMainContainer>
         <Prompt />
         <InputContainer 
             type="text"
@@ -91,7 +90,7 @@ export default function Input({
             spellCheck="false"
             autoFocus
         />
-    </div>
+    </CommandInputMainContainer>
 
   )  
 }

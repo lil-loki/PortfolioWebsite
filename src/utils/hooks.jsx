@@ -1,19 +1,19 @@
 import React,{ useState } from 'react'; 
 
-export const useHistory = () => {
-  const [history, setHistory] = useState([]);
+export const useCommandHistory = () => {
+  const [commandHistory, setCommandHistory] = useState([]);
   const [command, setCommand] = useState('');
   const [lastCommandIndex, setLastCommandIndex] =useState(0);
 
   return {
-    history,
+    commandHistory,
     command,
     lastCommandIndex,
-    setHistory: (value) =>
-      setHistory([
-        ...history,
+    setCommandHistory: (value) =>
+    setCommandHistory([
+        ...commandHistory,
         {
-          id: history.length,
+          id: commandHistory.length,
           date: new Date(),
           command,
           output: value,
@@ -21,7 +21,7 @@ export const useHistory = () => {
       ]),
     setCommand,
     setLastCommandIndex,
-    clearHistory: () => setHistory([]),
+    clearCommandHistory: () => setCommandHistory([]),
   };
 }
 

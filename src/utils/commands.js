@@ -1,4 +1,7 @@
 import styled, { css } from 'styled-components';
+
+import {ContactsMainContainer,ContactsContainer,ContactsLinks} from '../components/contacts/contact.style'
+
 import {ExperienceTree} from './asciiArt';
 
 
@@ -65,7 +68,7 @@ export const aboutme = async (args) => {
     <OutputValueContainer>
     <OutputValue>
         Hi,I am a Lokesh !👋
-        </OutputValue>
+    </OutputValue>
     <OutputValue>
         I am a Full-Stack Developer and an Embedded Systems Engineer who builds engaging websites like this one.
     </OutputValue>
@@ -144,11 +147,19 @@ export const contact = async (args) => {
     return (
         <OutputContainer>
             <OutputTitleContainer> CONTACT</OutputTitleContainer>
-                <ul>
-                <li><a href="mailto:lokesh,sivakumar@gmail.com">Email ME</a></li>
-                <li><a href="https://github.com/lil-loki">Github</a></li>
-                <li><a href="https://linkedin.com/in/lokesh-sivakumar-921133155/">Linkedin</a></li>
-                </ul>
+            <OutputValueContainer>
+                <OutputValue>
+                    Alone we can do so little; together we can do so much.
+                </OutputValue>
+                <OutputValue>
+                     Links you can use to reach me:
+                </OutputValue>
+                </OutputValueContainer>
+            <ContactsContainer>
+                <ContactsLinks>Email ---{'>'}{'>'} <a href='mailto:lokesh.sivakumar@gmail.com'>lokesh.sivakumar@gmail.com</a></ContactsLinks>
+                <ContactsLinks>GitHub ---{'>'}{'>'} <a href='https://github.com/lil-loki'>github/lil-loki</a></ContactsLinks>
+                <ContactsLinks>Linkedin ---{'>'}{'>'} <a href='https://linkedin.com/in/lokesh-sivakumar-921133155/'>Linkedin/Lokesh.S</a></ContactsLinks>
+            </ContactsContainer>
         </OutputContainer>
     );
 };
@@ -168,8 +179,8 @@ export const experience = async (args) => {
 };
 
 export const email = async (args) => {
-    window.open('mailto:lokesh,sivakumar@gmail.com  ', '_blank')
-    return `Opening Linkedin`;
+    window.open('mailto:lokesh.sivakumar@gmail.com  ', '_blank')
+    return `Opening Email`;
 }; 
 
 export const linkedin = async (args) => {
@@ -209,7 +220,7 @@ export const vi = async (args) => {
 };
   
 export const vim = async (args) => {
-    return `'vim' is also outdated. how about 'notepad'?`;
+    return `'vim' is  outdated. how about 'notepad'?`;
 };
 
 export const notepad = async (args) => {
@@ -222,10 +233,6 @@ export const msword = async (args) => {
 
 export const ipconfig = async (args) => {
     return ipdetails;
-};
-
-export const exit = async (args)=> {
-    window.close()
 };
 
 export const sudo = async (args) => {

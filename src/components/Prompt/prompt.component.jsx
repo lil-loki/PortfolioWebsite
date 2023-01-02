@@ -1,16 +1,18 @@
 import React from 'react'
 
+import{PromptContainer,PromptNameContainer,PromptSymbolContainer,PromptDomainContainer} from './prompt.styles'
+
 export default function Prompt() {
   return (
-    <div>
-      <span>
+    <PromptContainer>
+      <PromptNameContainer>
         lokesh
-      </span>
-      <span >@</span>
-      <span>
+      </PromptNameContainer>
+      <PromptSymbolContainer >@</PromptSymbolContainer>
+      <PromptDomainContainer>
         resume.com
-      </span>
-      <span>:$ ~ </span>
-    </div>
+      </PromptDomainContainer>
+      <PromptSymbolContainer>:$ ~ </PromptSymbolContainer>
+    </PromptContainer>
   )
 }
